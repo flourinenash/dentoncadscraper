@@ -18,7 +18,6 @@ Install the required libraries using pip install -r requirements.txt.
 Open scraper.py in a text editor.
 Modify the prop_id range in the for loop to match the range of property IDs you want to search.
 Run the script using python scraper.py.
-
 The script will create a CSV file named property_data.csv in the same directory as the script, and write the scraped data to the file.
 
 Output
