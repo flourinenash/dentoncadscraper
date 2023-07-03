@@ -1,6 +1,6 @@
 Property Data Scraper
 
-This Python script scrapes property data from the True Automation Property Search website for a range of property IDs and years, and saves the data to a CSV file.
+This Python script scrapes property data from the Dentoc CAD website for a range of property IDs and years, and saves the data to a CSV file.
 
 Requirements
 To run this script, you need:
