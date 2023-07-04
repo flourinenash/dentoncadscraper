@@ -6,6 +6,14 @@ from bs4 import BeautifulSoup
 # Define the base URL for the property search
 base_url = 'https://propaccess.trueautomation.com/clientdb/Property.aspx?cid=19&prop_id={}&year={}'
 
+# Define the range of property IDs to search
+prop_id_start = 180440
+prop_id_end = 180460
+
+# Define the range of years to search
+year_start = 2010
+year_end = 2023
+
 # Open a CSV file for writing and write the header row
 with open('property_data.csv', 'w', newline='') as csvfile:
     fieldnames = ['Property ID', 'Year', 'Address', 'Market Value']
@@ -13,7 +21,7 @@ with open('property_data.csv', 'w', newline='') as csvfile:
     writer.writeheader()
 
     # Loop over the property IDs to search
-    for prop_id in range(180440, 180460):
+    for prop_id in range(prop_id_start, prop_id_end):
         # Send a GET request to the property search URL for the latest year (2023)
         response = requests.get(base_url.format(prop_id, 2023))
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -25,7 +33,7 @@ with open('property_data.csv', 'w', newline='') as csvfile:
             address = address_match.group(1).strip()
 
         # Loop over the years to search for property data
-        for year in range(2010, 2024):
+        for year in range(year_start, year_end):
             # Format the property search URL with the current property ID and year
             url = base_url.format(prop_id, year)
 
